@@ -9,5 +9,8 @@
 	},
 	"runArgs": [
 		//"-u 1000:1000"
+	],
+	"mounts": [
+		"source=/home/adesso/.ssh,target=/home/builder/.ssh,type=bind,consistency=cached"
 	]
 }
