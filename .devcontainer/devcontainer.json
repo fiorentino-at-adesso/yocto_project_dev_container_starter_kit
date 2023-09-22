@@ -1,0 +1,13 @@
+{
+	"name": "Yocto Project Starter Kit",
+	"build": {
+		"dockerfile": "Dockerfile",
+		"args": {
+			// "USER_ID": "1000",
+			// "GROUP_ID": "1000"
+		}
+	},
+	"runArgs": [
+		//"-u 1000:1000"
+	]
+}
