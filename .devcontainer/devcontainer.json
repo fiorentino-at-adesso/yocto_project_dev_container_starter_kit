@@ -11,6 +11,7 @@
 		//"-u 1000:1000"
 	],
 	"mounts": [
-		"source=/home/adesso/.ssh,target=/home/builder/.ssh,type=bind,consistency=cached"
+		"source=/home/adesso/.ssh,target=/home/builder/.ssh,type=bind,consistency=cached",
+		"source=/home/adesso/devel,target=/home/builder/devel,type=bind,consistency=cached"
 	]
 }
