@@ -7,3 +7,5 @@ rm -rf build/conf
 source layers/poky/oe-init-build-env
 bitbake-layers add-layer ../layers/meta-uvw
 bitbake uvw-example
+echo "CORE_IMAGE_EXTRA_INSTALL:append = \"uvw-example\"" >> conf/local.conf
+bitbake core-image-minimal
