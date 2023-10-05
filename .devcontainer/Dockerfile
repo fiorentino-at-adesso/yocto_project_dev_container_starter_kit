@@ -27,6 +27,7 @@ ENV LC_ALL='en_US.UTF-8'
 # Install dependencies
 RUN apt-get update \
     && apt-get install -y \
+        bash-completion \
         python2 \
         python3 \
         python3-pip \
