@@ -8,10 +8,11 @@
 		}
 	},
 	"runArgs": [
-		//"-u 1000:1000"
+		"--cap-add=NET_ADMIN"
 	],
 	"mounts": [
 		"source=/home/adesso/.ssh,target=/home/builder/.ssh,type=bind,consistency=cached",
-		"source=/home/adesso/devel,target=/home/builder/devel,type=bind,consistency=cached"
+		"source=/home/adesso/devel,target=/home/builder/devel,type=bind,consistency=cached",
+		"source=/dev/net/tun,target=/dev/net/tun,type=bind,consistency=cached"
 	]
 }

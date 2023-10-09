@@ -11,10 +11,6 @@ ENV DEBIAN_FRONTEND=noninteractive
 CMD "/bin/bash"
 SHELL ["/bin/bash", "-c"]
 
-RUN id -g $USER 2>/dev/null || groupadd -g $GROUP_ID $USER
-RUN id $USER 2>/dev/null || useradd --uid $USER_ID --gid $GROUP_ID --create-home $USER
-RUN echo $USER" ALL=(ALL) NOPASSWD: ALL" | tee -a /etc/sudoers
-
 # Set the locale
 RUN apt-get update && \
     apt-get install -y locales && \
@@ -46,7 +42,13 @@ RUN apt-get update \
         mtools \
         libssl-dev \
         libcrypto++-dev \
+        iproute2 \
+        sudo \
     && rm -rf /var/lib/apt/lists/*
+
+RUN id -g $USER 2>/dev/null || groupadd -g $GROUP_ID $USER
+RUN id $USER 2>/dev/null || useradd --uid $USER_ID --gid $GROUP_ID --create-home $USER
+RUN echo $USER" ALL=(ALL) NOPASSWD: ALL" | tee -a /etc/sudoers
 
 RUN echo "export LANG='en_US.UTF-8'" >> /home/$USER/.bashrc
 RUN echo "export LANGUAGE='en_US:en'" >> /home/$USER/.bashrc
